@@ -1,0 +1,33 @@
+{
+  "auth": {
+    "email": "igor@mail.com",
+    "password": "123456",
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiZW1haWwiOiJpZ29yQG1haWwuY29tIiwiaWF0IjoxNjQzMDU2MzIwfQ.MkB4jIVR-OPIuvso3BwJ9ghQ5CyP85bKno_YcerldWo"
+  },
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Task 1",
+      "description": "Description 1",
+      "status": "open",
+      "createdAt": "2019-01-01T00:00:00.000Z",
+      "updatedAt": "2019-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "title": "Task 2",
+      "description": "Description 2",
+      "status": "closed",
+      "createdAt": "2019-01-01T00:00:00.000Z",
+      "updatedAt": "2019-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "title": "Task 3",
+      "description": "Description 3",
+      "status": "open",
+      "createdAt": "2019-01-01T00:00:00.000Z",
+      "updatedAt": "2019-01-01T00:00:00.000Z"
+    }
+  ]
+}
