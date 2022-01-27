@@ -1,7 +1,13 @@
 {
   "auth": {
-    "email": "igor@mail.com",
-    "password": "123456",
+    "user": {
+      "id": "d12e24d9-0768-4441-850e-1e3364c01e5a",
+      "firstName": "Igor",
+      "lastName": "Silva",
+      "email": "igor@mail.com",
+      "createdAt": "2016-01-01T00:00:00.000Z",
+      "updatedAt": "2016-01-01T00:00:00.000Z"
+    },
     "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiZW1haWwiOiJpZ29yQG1haWwuY29tIiwiaWF0IjoxNjQzMDU2MzIwfQ.MkB4jIVR-OPIuvso3BwJ9ghQ5CyP85bKno_YcerldWo"
   },
   "tasks": [
