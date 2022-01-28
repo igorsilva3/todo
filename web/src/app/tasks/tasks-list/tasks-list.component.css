@@ -1,0 +1,22 @@
+#tasks {
+  width: 100%;
+  max-width: 60%;
+}
+
+.actions a {
+  margin-left: 3px;
+}
+
+.check a i {
+  opacity: 0;
+  font-size: 100%;
+}
+
+.check a:hover i {
+  opacity: 1;
+  transition: 1.5ms;
+}
+
+
+
+
