@@ -1,4 +1,4 @@
-#tasks {
+.tasks {
   width: 100%;
   max-width: 60%;
 }
@@ -7,9 +7,13 @@
   margin-left: 3px;
 }
 
+.check  {
+  width: auto;
+  height: auto;
+}
+
 .check a i {
   opacity: 0;
-  font-size: 100%;
 }
 
 .check a:hover i {
@@ -17,6 +21,13 @@
   transition: 1.5ms;
 }
 
+.done {
+  text-decoration: line-through;
+}
+
+.check a i, .done a i {
+  color: green
+}
 
 
 

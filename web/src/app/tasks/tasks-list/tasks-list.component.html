@@ -1,18 +1,26 @@
 <div class="content">
   <div class="d-flex flex-fill mt-5 justify-content-center align-items-center">
-    <ul id="tasks" class="list-group">
-      <li class="list-group-item">
+    <ul class="list-group tasks">
+      <li *ngFor="let task of tasks"  class="list-group-item">
         <div class="d-flex">
-          <div class="d-flex justify-content-center align-items-center task m-1">
-            <span class="check m-2">
+          <div class="d-flex justify-content-center align-items-center m-1">
+            <span [ngClass]="{ 'check m-2': task.status != 'done', 'done m-2': task.status }">
               <a class="border border-3 ms-1 rounded-circle btn btn-light" title="Check">
-                <i class="fa fa-check-circle"></i>
+                <i class="fa fa-check fa-lg"></i>
               </a>
             </span>
-
-            <p class="h4 ms-4 mt-2">Task 1</p>
           </div>
-          <div class="d-flex flex-fill justify-content-end align-items-center actions">
+
+          <div class="d-flex flex-fill justify-content-start align-items-center m-1 text-break">
+            <p class="h4 ms-2 mt-2 {{ task.status }}">
+              {{ task.title }}
+            </p>
+
+            <p class="fst-italic text-muted m-2 {{ task.status }}">
+              {{ task.description }}
+            </p>
+          </div>
+          <div class="d-flex justify-content-end align-items-center actions">
             <span class="edit">
               <a class="btn btn-success" title="Edit">
                 <i class="fa fa-edit"></i>
