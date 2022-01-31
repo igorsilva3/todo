@@ -9,7 +9,17 @@
                 'check m-2': task.status !== 'done',
                 'done m-2': task.status
               }"
-              (click)="task.status = task.status === 'done' ? 'open' : 'done'"
+              (click)="updateTask({
+                id: task.id,
+                data: {
+                  id: task.id,
+                  title: task.title,
+                  description: task.description,
+                  status: task.status === 'done' ? 'open' : 'done',
+                  createdAt: task.createdAt,
+                  updatedAt: task.updatedAt
+                }
+              })"
             >
               <a
                 class="border border-3 ms-1 rounded-circle btn btn-light"

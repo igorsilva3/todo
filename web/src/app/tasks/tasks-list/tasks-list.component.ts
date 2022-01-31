@@ -24,4 +24,11 @@ export class TasksListComponent implements OnInit {
     })
   }
 
+  public updateTask({ id, data }: { id: number, data: Partial<Task> }) {
+    this.service.updateTaskService.execute({ id, data }).subscribe(task => {
+      const index = this.tasks.findIndex(t => t.id === id)
+      this.tasks[index] = task
+    })
+  }
+
 }
