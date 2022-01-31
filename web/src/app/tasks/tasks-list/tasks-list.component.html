@@ -45,7 +45,7 @@
               </a>
             </span>
             <span class="delete">
-              <a class="btn btn-outline-danger" title="Delete">
+              <a (click)="deleteTask({ id: task.id })" class="btn btn-outline-danger" title="Delete">
                 <i class="fa fa-trash fa-lg"></i>
               </a>
             </span>

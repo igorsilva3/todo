@@ -18,4 +18,10 @@ export class TasksListComponent implements OnInit {
     this.service.getTaskService.execute().subscribe(tasks => this.tasks = tasks)
   }
 
+  public deleteTask({ id }: { id: number }): void {
+    this.service.deleteTaskService.execute({ id }).subscribe(() => {
+      this.tasks = this.tasks.filter(task => task.id !== id)
+    })
+  }
+
 }
