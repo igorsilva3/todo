@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { TasksListComponent } from './tasks/tasks-list/tasks-list.component';
+import { CreateTasksComponent } from './tasks/create-tasks/create-tasks.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    TasksListComponent
+    TasksListComponent,
+    CreateTasksComponent
   ],
   imports: [
     BrowserModule,
