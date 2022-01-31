@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/internal/Observable';
 
 import { Task } from './../../models/task.model';
 
-import { environment } from './../../../environments/environment.dev';
+import { environment } from './../../../environments/environment';
 
 type UpdateTaskDTO = {
   id: number;
