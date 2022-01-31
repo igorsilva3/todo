@@ -1,45 +1,18 @@
 import { Injectable } from '@angular/core'
+import { HttpClient } from '@angular/common/http';
 
 import { Task } from '../../models/task.model'
+import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GetTasksService {
-  constructor() { }
+  private baseUrl = 'http://localhost:3000'
 
-  public execute(): Task[] {
-    return [
-      {
-        id: 1,
-        title: 'Task 1',
-        description: 'Task 1 description',
-        status: 'open',
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      },
-      {
-        id: 2,
-        title: 'Task 2',
-        status: 'open',
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      },
-      {
-        id: 3,
-        title: 'Task 3',
-        description: 'Task 3 description',
-        status: 'done',
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      },
-      {
-        id: 4,
-        title: 'Task 4',
-        status: 'open',
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      }
-    ]
+  constructor(private httpClient: HttpClient) { }
+
+  public execute(): Observable<Task[]> {
+    return this.httpClient.get<Task[]>(`${this.baseUrl}/tasks/`)
   }
 }
