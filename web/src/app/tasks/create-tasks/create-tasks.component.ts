@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, Input } from '@angular/core'
 import { TaskService } from './../services/task.service'
+
+import { Task } from './../../models/task.model'
 
 type CreateTaskDTO = {
   title: string
@@ -20,6 +22,9 @@ export class CreateTasksComponent implements OnInit {
     status: 'open',
   }
 
+  @Input()
+  public tasks: Task[]
+
   constructor(private service: TaskService) {}
 
   ngOnInit(): void {}
@@ -27,13 +32,15 @@ export class CreateTasksComponent implements OnInit {
   public createTask(): void {
     this.service.createTaskService
       .execute(this.dataForm)
-      .subscribe(() => {})
+      .subscribe((task) => {
+        this.tasks.push(task)
 
-    // Clear form
-    this.dataForm = {
-      ...this.dataForm,
-      title: '',
-      description: '',
-    }
+        // Clear form
+        this.dataForm = {
+          ...this.dataForm,
+          title: '',
+          description: '',
+        }
+      })
   }
 }
