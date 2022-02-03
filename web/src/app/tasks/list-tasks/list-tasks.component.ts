@@ -1,21 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
-import { TaskService } from './../services/task.service';
+import { TaskService } from '../services/task.service';
 
-import { Task } from './../../models/task.model';
+import { Task } from '../../models/task.model';
 @Component({
-  selector: 'app-tasks-list',
-  templateUrl: './tasks-list.component.html',
-  styleUrls: ['./tasks-list.component.css'],
+  selector: 'app-list-tasks',
+  templateUrl: './list-tasks.component.html',
+  styleUrls: ['./list-tasks.component.css'],
   providers: [ TaskService ]
 })
-export class TasksListComponent implements OnInit {
+export class ListTasksComponent implements OnInit {
+  @Input()
   public tasks: Task[]
 
   constructor(private service: TaskService) { }
 
   ngOnInit(): void {
-    this.service.getTaskService.execute().subscribe(tasks => this.tasks = tasks)
   }
 
   public deleteTask({ id }: { id: number }): void {
