@@ -3,21 +3,21 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { ListTasksComponent } from './list-tasks/list-tasks.component';
-import { CreateTasksComponent } from './create-tasks/create-tasks.component';
-import { DeleteTasksComponent } from './delete-tasks/delete-tasks.component';
+import { CreateTaskComponent } from './create-task/create-task.component';
+import { DeleteTaskComponent } from './delete-task/delete-task.component';
 
 @NgModule({
   declarations: [
     ListTasksComponent,
-    CreateTasksComponent,
-    DeleteTasksComponent
+    CreateTaskComponent,
+    DeleteTaskComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
   ],
   exports: [
-    CreateTasksComponent,
+    CreateTaskComponent,
     ListTasksComponent
   ]
 })
