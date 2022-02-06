@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 
 import { ListTasksComponent } from './list-tasks/list-tasks.component';
 import { CreateTasksComponent } from './create-tasks/create-tasks.component';
+import { DeleteTasksComponent } from './delete-tasks/delete-tasks.component';
 
 @NgModule({
   declarations: [
     ListTasksComponent,
-    CreateTasksComponent
+    CreateTasksComponent,
+    DeleteTasksComponent
   ],
   imports: [
     CommonModule,
