@@ -18,12 +18,6 @@ export class ListTasksComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public deleteTask({ id }: { id: number }): void {
-    this.service.deleteTaskService.execute({ id }).subscribe(() => {
-      this.tasks = this.tasks.filter(task => task.id !== id)
-    })
-  }
-
   public updateTask({ id, data }: { id: number, data: Partial<Task> }) {
     this.service.updateTaskService.execute({ id, data }).subscribe(task => {
       const index = this.tasks.findIndex(t => t.id === id)
