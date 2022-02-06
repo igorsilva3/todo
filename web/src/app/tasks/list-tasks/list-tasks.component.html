@@ -4,30 +4,7 @@
       <li *ngFor="let task of tasks" class="list-group-item">
         <div class="d-flex">
           <div class="d-flex justify-content-center align-items-center m-1">
-            <span
-              [ngClass]="{
-                'check m-2': task.status !== 'done',
-                'done m-2': task.status
-              }"
-              (click)="updateTask({
-                id: task.id,
-                data: {
-                  id: task.id,
-                  title: task.title,
-                  description: task.description,
-                  status: task.status === 'done' ? 'open' : 'done',
-                  createdAt: task.createdAt,
-                  updatedAt: task.updatedAt
-                }
-              })"
-            >
-              <a
-                class="border border-3 ms-1 rounded-circle btn btn-light"
-                title="Check"
-              >
-                <i class="fa fa-check fa-lg"></i>
-              </a>
-            </span>
+            <app-check-task [task]="task"></app-check-task>
           </div>
 
           <div

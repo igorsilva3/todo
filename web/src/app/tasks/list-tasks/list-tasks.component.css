@@ -7,27 +7,6 @@
   margin-left: 4px;
 }
 
-.check  {
-  width: auto;
-  height: auto;
-}
-
-.check a i {
-  opacity: 0;
-}
-
-.check a:hover i {
-  opacity: 1;
-  transition: 1.5ms;
-}
-
 .done {
   text-decoration: line-through;
 }
-
-.check a i, .done a i {
-  color: green
-}
-
-
-
