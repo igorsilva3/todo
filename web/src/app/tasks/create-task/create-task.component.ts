@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core'
-import { TaskService } from './../services/task.service'
+import { TaskService } from '../services/task.service'
 
-import { Task } from './../../models/task.model'
+import { Task } from '../../models/task.model'
 
 type CreateTaskDTO = {
   title: string
@@ -10,12 +10,12 @@ type CreateTaskDTO = {
 }
 
 @Component({
-  selector: 'app-create-tasks',
-  templateUrl: './create-tasks.component.html',
-  styleUrls: ['./create-tasks.component.css'],
+  selector: 'app-create-task',
+  templateUrl: './create-task.component.html',
+  styleUrls: ['./create-task.component.css'],
   providers: [TaskService],
 })
-export class CreateTasksComponent implements OnInit {
+export class CreateTaskComponent implements OnInit {
   public dataForm: CreateTaskDTO = {
     title: '',
     description: '',
