@@ -1,0 +1,17 @@
+a i {
+  color: green
+}
+
+.check  {
+  width: auto;
+  height: auto;
+}
+
+.check a i {
+  opacity: 0;
+}
+
+.check a:hover i {
+  opacity: 1;
+  transition: 1.5ms;
+}

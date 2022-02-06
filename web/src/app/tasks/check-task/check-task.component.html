@@ -1,1 +1,11 @@
-<p>check-task works!</p>
+<span
+  [ngClass]="{
+    'check m-2': task.status !== 'done',
+    'done m-2': task.status
+  }"
+  (click)="task.status === 'open' ? checkTask() : unCheckTask()"
+>
+  <a class="border border-3 ms-1 rounded-circle btn btn-light" title="Check">
+    <i class="fa fa-check fa-lg"></i>
+  </a>
+</span>
