@@ -5,11 +5,11 @@ import { TaskService } from '../services/task.service'
 import { Task } from '../../models/task.model'
 
 @Component({
-  selector: 'app-delete-tasks',
-  templateUrl: './delete-tasks.component.html',
-  styleUrls: ['./delete-tasks.component.css'],
+  selector: 'app-delete-task',
+  templateUrl: './delete-task.component.html',
+  styleUrls: ['./delete-task.component.css'],
 })
-export class DeleteTasksComponent implements OnInit {
+export class DeleteTaskComponent implements OnInit {
   @Input() taskId: number
 
   @Input() tasks: Task[]

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeleteTasksComponent } from './delete-tasks.component';
+import { DeleteTaskComponent } from './delete-task.component';
 
-describe('DeleteTasksComponent', () => {
-  let component: DeleteTasksComponent;
-  let fixture: ComponentFixture<DeleteTasksComponent>;
+describe('DeleteTaskComponent', () => {
+  let component: DeleteTaskComponent;
+  let fixture: ComponentFixture<DeleteTaskComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DeleteTasksComponent ]
+      declarations: [ DeleteTaskComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DeleteTasksComponent);
+    fixture = TestBed.createComponent(DeleteTaskComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
