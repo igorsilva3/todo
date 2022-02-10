@@ -12,8 +12,6 @@ import { Task } from '../../models/task.model'
 export class DeleteTaskComponent implements OnInit {
   @Input() taskId: number
 
-  @Input() tasks: Task[]
-
   constructor(private service: TaskService) {}
 
   ngOnInit(): void {}
@@ -21,8 +19,6 @@ export class DeleteTaskComponent implements OnInit {
   public deleteTask() {
     this.service.deleteTaskService
       .execute({ id: this.taskId })
-      .subscribe(() => {
-        this.tasks = this.tasks.filter((task) => task.id !== this.taskId)
-      })
+      .subscribe()
   }
 }
