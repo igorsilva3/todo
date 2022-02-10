@@ -19,18 +19,7 @@
             </p>
           </div>
           <div class="d-flex justify-content-end align-items-center actions">
-            <span class="content">
-              <a
-                [ngClass]="{
-                  'btn btn-outline-success disabled': task.status === 'done',
-                  'btn btn-outline-success': task.status
-                }"
-
-                title="Edit"
-              >
-                <i class="fa fa-edit fa-lg"></i>
-              </a>
-            </span>
+            <app-update-task [task]="task"></app-update-task>
             <app-delete-task [taskId]="task.id"></app-delete-task>
           </div>
         </div>
