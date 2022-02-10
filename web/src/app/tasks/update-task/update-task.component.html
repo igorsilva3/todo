@@ -1,3 +1,16 @@
+<span class="content">
+  <a
+    [ngClass]="{
+      'btn btn-outline-success disabled': task.status === 'done',
+      'btn btn-outline-success': task.status
+    }"
+    title="Edit"
+    (click)="open(content)"
+  >
+    <i class="fa fa-edit fa-lg"></i>
+  </a>
+</span>
+
 <ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic">Update Task - {{ task.title }}</h4>
@@ -47,16 +60,3 @@
     </button>
   </div>
 </ng-template>
-
-<span class="content">
-  <a
-    [ngClass]="{
-      'btn btn-outline-success disabled': task.status === 'done',
-      'btn btn-outline-success': task.status
-    }"
-    title="Edit"
-    (click)="open(content)"
-  >
-    <i class="fa fa-edit fa-lg"></i>
-  </a>
-</span>
