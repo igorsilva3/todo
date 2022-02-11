@@ -22,25 +22,21 @@ export class CreateTaskComponent implements OnInit {
     status: 'open',
   }
 
-  @Input()
-  public tasks: Task[]
-
   constructor(private service: TaskService) {}
 
   ngOnInit(): void {}
 
   public createTask(): void {
-    this.service.createTaskService
-      .execute(this.dataForm)
-      .subscribe((task) => {
-        this.tasks.push(task)
+    this.service.createTaskService.execute(this.dataForm).subscribe(() => {
+      this.clearForm()
+    })
+  }
 
-        // Clear form
-        this.dataForm = {
-          ...this.dataForm,
-          title: '',
-          description: '',
-        }
-      })
+  private clearForm() {
+    this.dataForm = {
+      ...this.dataForm,
+      title: '',
+      description: '',
+    }
   }
 }
