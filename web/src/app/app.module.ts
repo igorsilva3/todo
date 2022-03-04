@@ -13,8 +13,7 @@ import { TasksComponent } from './tasks/tasks.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
-    TasksComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
