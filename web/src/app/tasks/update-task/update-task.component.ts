@@ -3,7 +3,9 @@ import { Component, OnInit, Input } from '@angular/core'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 
 import { Task } from 'src/app/models/task.model'
+
 import { TaskService } from '../services/task.service'
+import { TasksObservableService } from '../services/tasks-observable.service'
 
 type UpdateTaskDTO = {
   title: string
@@ -19,13 +21,23 @@ export class UpdateTaskComponent implements OnInit {
 
   dataForm: UpdateTaskDTO
 
-  constructor(private modalService: NgbModal, private service: TaskService) {}
+  private tasks: Task[] = []
+
+  constructor(
+    private modalService: NgbModal,
+    private service: TaskService,
+    private tasksObservableService: TasksObservableService,
+  ) {}
 
   ngOnInit(): void {
     this.dataForm = {
       title: this.task.title,
       description: this.task.description,
     }
+
+    this.tasksObservableService.getTasks().subscribe((tasks) => {
+      this.tasks = tasks
+    })
   }
 
   open(content: any) {
@@ -49,6 +61,16 @@ export class UpdateTaskComponent implements OnInit {
         this.dataForm = {
           ...task,
         }
+
+        this.tasks = this.tasks.map((_task) => {
+          if (_task.id !== task.id) {
+            return _task
+          }
+
+          return task
+        })
       })
+
+    this.tasksObservableService.notifyTasks(this.tasks)
   }
 }
