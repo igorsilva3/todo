@@ -30,17 +30,10 @@ export class CreateTaskComponent implements OnInit {
   }
 
   public createTask(): void {
-    let tasks: Task[] = []
-
-    this.service.getTasksService.execute().subscribe((_tasks) => {
-      tasks = _tasks
-    })
-
-    this.service.createTaskService.execute(this.dataForm).subscribe(() => {
+    this.service.createTaskService.execute(this.dataForm).subscribe((task) => {
+      this.tasksObservableService.addTask(task)
       this.clearForm()
     })
-
-    this.tasksObservableService.notifyTasks(tasks)
   }
 
   private clearForm() {

@@ -21,8 +21,6 @@ export class UpdateTaskComponent implements OnInit {
 
   dataForm: UpdateTaskDTO
 
-  private tasks: Task[] = []
-
   constructor(
     private modalService: NgbModal,
     private service: TaskService,
@@ -34,10 +32,6 @@ export class UpdateTaskComponent implements OnInit {
       title: this.task.title,
       description: this.task.description,
     }
-
-    this.tasksObservableService.getTasks().subscribe((tasks) => {
-      this.tasks = tasks
-    })
   }
 
   open(content: any) {
@@ -61,16 +55,7 @@ export class UpdateTaskComponent implements OnInit {
         this.dataForm = {
           ...task,
         }
-
-        this.tasks = this.tasks.map((_task) => {
-          if (_task.id !== task.id) {
-            return _task
-          }
-
-          return task
-        })
+        this.tasksObservableService.updateTask(task)
       })
-
-    this.tasksObservableService.notifyTasks(this.tasks)
   }
 }

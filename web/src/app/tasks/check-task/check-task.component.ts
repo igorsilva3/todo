@@ -13,18 +13,12 @@ import { Task } from './../../models/task.model'
 export class CheckTaskComponent implements OnInit {
   @Input() task: Task
 
-  private tasks: Task[] = []
-
   constructor(
     private service: TaskService,
     private tasksObservableService: TasksObservableService,
   ) {}
 
-  ngOnInit(): void {
-    this.tasksObservableService.getTasks().subscribe((tasks) => {
-      this.tasks = tasks
-    })
-  }
+  ngOnInit(): void {}
 
   public checkTask() {
     this.service.updateTaskService
@@ -36,16 +30,8 @@ export class CheckTaskComponent implements OnInit {
         },
       })
       .subscribe((_task) => {
-        this.tasks = this.tasks.map((task) => {
-          if (task.id !== _task.id) {
-            return task
-          }
-
-          return _task
-        })
+        this.tasksObservableService.updateTask(_task)
       })
-
-    this.tasksObservableService.notifyTasks(this.tasks)
   }
 
   public unCheckTask() {
@@ -58,15 +44,7 @@ export class CheckTaskComponent implements OnInit {
         },
       })
       .subscribe((_task) => {
-        this.tasks = this.tasks.map((task) => {
-          if (task.id !== _task.id) {
-            return task
-          }
-
-          return _task
-        })
+        this.tasksObservableService.updateTask(_task)
       })
-
-    this.tasksObservableService.notifyTasks(this.tasks)
   }
 }

@@ -12,23 +12,25 @@ import { TasksObservableService } from '../services/tasks-observable.service'
 export class DeleteTaskComponent implements OnInit {
   @Input() taskId: number
 
-  private tasks: Task[] = []
-
-  constructor(private service: TaskService, private tasksObservableService: TasksObservableService) {}
+  constructor(
+    private service: TaskService,
+    private tasksObservableService: TasksObservableService,
+  ) {}
 
   ngOnInit(): void {
-    this.tasksObservableService.getTasks().subscribe((tasks) => {
-      this.tasks = tasks
-    })
   }
 
   public deleteTask() {
+    let task: Task
+
+    this.service.getTaskByIdService.execute({ id: this.taskId }).subscribe((_task) => {
+      task = _task
+    })
+
     this.service.deleteTaskService
       .execute({ id: this.taskId })
       .subscribe(() => {
-        this.tasks = this.tasks.filter((task) => task.id !== this.taskId)
+        this.tasksObservableService.deleteTask(task)
       })
-
-    this.tasksObservableService.notifyTasks(this.tasks)
   }
 }
