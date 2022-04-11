@@ -2,6 +2,8 @@ import { CreateAccountComponent } from './account/create-account/create-account.
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AuthGuard } from './account/guards/auth.guard';
+
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './account/login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -9,7 +11,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'account',
@@ -20,8 +23,8 @@ const routes: Routes = [
       },
       {
         path: 'login',
-        component: LoginComponent
-      }
+        component: LoginComponent,
+      },
     ]
   },
   {
