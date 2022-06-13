@@ -5,6 +5,9 @@
 
   <div class="d-flex flex-row me-auto justify-content-center align-items-center">
     <form (ngSubmit)="login()" class="login-form">
+      <div class="text-center">
+        <p class="fst-italic text-danger">{{ errorMessage }}</p>
+      </div>
       <div class="d-flex flex-column mb-1">
         <div class="form-floating mb-3">
           <input type="email" class="form-control" id="email-input" placeholder="name@example.com"

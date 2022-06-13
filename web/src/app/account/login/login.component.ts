@@ -15,23 +15,33 @@ export class LoginComponent implements OnInit {
     password: '',
   }
 
+  public errorMessage: string = ''
+
   constructor(
     private authService: AuthService,
     private router: Router,
     private sessionService: SessionService,
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.sessionService.getTokenSessionService.execute()) {
+      this.router.navigate(['/'])
+    }
+  }
 
   login() {
-    this.authService.execute(this.loginForm).subscribe(async ({ token }) => {
-      if (!token) {
-        return
-      }
+    try {
+      this.authService.execute(this.loginForm).subscribe(({ token }) => {
+        if (!token) {
+          return
+        }
 
-      this.sessionService.setTokenSessionService.execute(token)
+        this.sessionService.setTokenSessionService.execute(token)
 
-      await this.router.navigate(['/'])
-    })
+        window.location.reload() // Gambiarra para redirecionar o usuário para a página inicial
+      })
+    } catch (error: any) {
+      this.errorMessage = error.message
+    }
   }
 }
