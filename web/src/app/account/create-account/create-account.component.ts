@@ -6,10 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-account.component.css']
 })
 export class CreateAccountComponent implements OnInit {
+  public accountCreateForm = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: ''
+  }
+
+  public errorMessage = ''
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public onSubmit() {
+    console.log(this.accountCreateForm);
   }
 
 }
