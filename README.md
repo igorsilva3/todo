@@ -11,6 +11,12 @@
 
 > A todo app with design minimalist
 
+## ✨ Demo
+
+<p align="center">
+  <img width="700" align="center" src="https://user-images.githubusercontent.com/48392942/177059237-ef34ed99-7b3e-46db-a1a5-32d5e06d3606.gif" alt="demo"/>
+</p>
+
 ## Install
 
 ```sh
