@@ -1,0 +1,14 @@
+
+.create-task {
+  width: 100%;
+  max-width: 65%;
+}
+
+.logo {
+  height: 65px;
+  width: 65px;
+}
+
+.add a i {
+  color: green;
+}

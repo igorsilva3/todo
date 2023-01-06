@@ -1,0 +1,29 @@
+<div class="content">
+  <div class="d-flex flex-fill mt-5 justify-content-center align-items-center">
+    <ul class="list-group tasks">
+      <li *ngFor="let task of tasks" class="list-group-item">
+        <div class="d-flex">
+          <div class="d-flex justify-content-center align-items-center m-1">
+            <app-check-task [task]="task"></app-check-task>
+          </div>
+
+          <div
+            class="d-flex flex-fill justify-content-start align-items-center m-1 text-break"
+          >
+            <p class="h4 ms-2 mt-2 {{ task.status }}">
+              {{ task.title }}
+            </p>
+
+            <p class="fst-italic text-muted m-2 {{ task.status }}">
+              {{ task.description }}
+            </p>
+          </div>
+          <div class="d-flex justify-content-end align-items-center actions">
+            <app-update-task [task]="task"></app-update-task>
+            <app-delete-task [taskId]="task.id"></app-delete-task>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

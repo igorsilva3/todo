@@ -1,0 +1,62 @@
+<span class="content">
+  <a
+    [ngClass]="{
+      'btn btn-outline-success disabled': task.status === 'done',
+      'btn btn-outline-success': task.status
+    }"
+    title="Edit"
+    (click)="open(content)"
+  >
+    <i class="fa fa-edit fa-lg"></i>
+  </a>
+</span>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic">Update Task - {{ task.title }}</h4>
+    <button
+      type="button"
+      class="btn btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss()"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form class="d-flex justify-content-between align-items-center ">
+      <div class="form-floating">
+        <input
+          [(ngModel)]="dataForm.title"
+          type="text"
+          class="form-control"
+          name="title"
+          [value]="dataForm.title"
+          id="task"
+          placeholder="Title"
+        />
+        <label for="task">Title</label>
+      </div>
+
+      <div class="form-floating">
+        <input
+          [(ngModel)]="dataForm.description"
+          type="text"
+          class="form-control"
+          name="description"
+          [value]="dataForm.description"
+          id="description"
+          placeholder="Add a description"
+        />
+        <label for="description">Description</label>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-primary"
+      (click)="[updateTask(), modal.close()]"
+    >
+      Save
+    </button>
+  </div>
+</ng-template>
